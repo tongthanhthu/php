@@ -33,17 +33,20 @@
  	}
 
 
-   function checkValidString($arr){
-        // $string = 'hello';
-        $after = 'after';
-        $before = 'before';
-        // var_dump((!empty($string) && strpos($string, $after) && strlen($string) > 50));die;
-        if (empty($string) || (!empty($string) && strpos($string, $after) && strlen($string) > 50) || (!empty($string) && !strpos($string, $after) && strpos($string, $before))) {
+function checkValidString($arr) {
+    $after = 'after';
+    $before = 'before';
+    
+    if(empty($arr)) {
+        return true;
+    } else {
+        if (strpos($arr, $after) === false && (strlen($arr) > 50 || strpos($arr, $before) !== false)) {
             return true;
         } else {
             return false;
         }
     }
+}
  }
  $object1 = new HandleString();
  $object1->setreadFile('file1.txt');
