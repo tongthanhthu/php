@@ -8,7 +8,7 @@
 
 
  	function setreadFile($n){
- 		$readFile = readFile("$n");
+ 		$readFile = file_get_contents($n);
 
  		$checkValidate = $this->checkValidString($readFile);
  		if($checkValidate == true){
