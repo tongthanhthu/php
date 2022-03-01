@@ -6,7 +6,7 @@ session_start();
 
 <?php
   
-if(isset($_POST['remember'])){
+
   if(isset($_POST['email'])){
   $_SESSION["email"] = $_POST['email'];
 }
@@ -35,7 +35,7 @@ if(isset($_POST['remember'])){
   else{
     echo '<font style="color:red; text-align: center;"><h2> Đăng nhập thất bại.” </h2></font>';
   }
-}
+
 }
 ?>
 <!DOCTYPE html>
