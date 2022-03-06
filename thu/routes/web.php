@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloWorldController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,10 @@ use App\Http\Controllers\HelloWorldController;
 |
 */
 
-Route::get('/', function () {
-    return view('hello_world.show');
-});
-route::get('hello_world ',[HelloWorldController::class,'index'])->name('login');
+route::get('register',[UsersController::class,'getregister']);
+
+route::post('register',[UsersController::class,'postregister']);
+route::get('list',[UsersController::class,'list']);
+
+
+
