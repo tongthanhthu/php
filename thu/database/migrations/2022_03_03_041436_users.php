@@ -22,7 +22,7 @@ class Users extends Migration
             $table->string('phone',15);
             $table->datetime('created_at');
             $table->datetime('updated_at');
-            $table->datetime('deleted_at');
+            $table->datetime('deleted_at')->nullable($value = true);
 
         });
     }
