@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
 class HelloWorldController extends Controller
 {
     function index(){
-        return view('hello_world.show');
+      dd(request->key);
+
+     return view('Register');
     }
 }
