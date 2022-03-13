@@ -15,12 +15,31 @@
       </li>
       
     </ul>
+                <!-- /.navbar-header -->
 
-    <!-- Right navbar links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+             @if(Auth::check())
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a ><i class="fa fa-user fa-fw"></i> {{Auth::user()->name}}</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                        @endif 
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+
+
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-
-
     </ul>
   </nav>
 
@@ -57,7 +76,7 @@
                 <h3 class="card-title">{{$title}} <small></small></h3>
               </div>
 
-          @yield('contents')
+          @yield('contentss')
 
             </div>
             <!-- /.card -->

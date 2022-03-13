@@ -17,12 +17,14 @@ class Users extends Migration
             $table->increments('id');
             $table->string('mail_address',255);
             $table->string('password',255);
-            $table->string('name',255);
-            $table->string('address',255);
-            $table->string('phone',15);
+            $table->string('name',255)->nullable();
+            $table->string('address',255)->nullable();
+            $table->string('phone',15)->nullable();
+            $table->string('role')->default($value = 2);
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->datetime('deleted_at')->nullable($value = true);
+            $table->rememberToken();
 
         });
     }

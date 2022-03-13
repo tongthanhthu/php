@@ -15,18 +15,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+               @if(Auth::User()->role == 1)
               <li class="nav-item">
-                <a href="register" class="nav-link">
+                <a href="addUsers" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>thêm User</p>
                 </a>
               </li>
+               @endif
+            
               <li class="nav-item">
                 <a href="list" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>danh sách User </p>
                 </a>
               </li>
+             
             </ul>
           </li>
         </ul>

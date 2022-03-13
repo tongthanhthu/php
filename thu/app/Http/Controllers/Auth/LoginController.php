@@ -7,6 +7,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    protected $maxLoginAttempts = 5; 
+    protected $decayMinutes = 60;
+
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -25,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'list';
 
     /**
      * Create a new controller instance.
@@ -36,4 +40,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function username() {
+        return 'mail_address';
+    }
+
 }

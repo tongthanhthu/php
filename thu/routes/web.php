@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloWorldController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RegistersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,26 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-route::get('register',[UsersController::class,'getregister']);
+//route::get('addUsers',[UsersController::class,'getaddUsers']);
+ //route::post('addUsers',[UsersController::class,'postaddUsers']);
+ //route::get('admin/list',[UsersController::class,'list']);
+// route::get('login',[LoginController::class,'login']);
+// route::post('store',[LoginController::class,'store']);
+ route::get('rregister',[RegistersController::class,'getregister']);
+ route::post('rregister',[RegistersController::class,'postregister']);
+ //Route::get('test-email', 'JobController@processQueue');
 
-route::post('register',[UsersController::class,'postregister']);
-route::get('list',[UsersController::class,'list']);
 
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout','HomeController@logout');
+
+route::middleware('adminlogin')->group(function(){
+     route::get('list',[UsersController::class,'list']);
+     route::middleware('administrator')->group(function(){
+        route::get('addUsers',[UsersController::class,'getaddUsers']);
+        route::post('addUsers',[UsersController::class,'postaddUsers']);
+            });
+     });

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="template/admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="template/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="template/admin/dist/css/adminlte.min.css"> 
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -17,7 +19,6 @@
   </div>
   <div class="card">
     <div class="card-body login-card-body">
-        @include('layouts.alert')
 
                         <form action="" method="POST" enctype="multipart/form-data" class="form-floating">
                             <fieldset>
@@ -61,9 +62,6 @@
                                          </div>
                                                 @endif 
                                 </div>
-                              
-                                    
-                                
                                 <button type="submit" class="btn btn-lg btn-success btn-block" name="submit">Đăng ký</button>
                             </fieldset>
                          @csrf
@@ -72,6 +70,11 @@
   </div>
 </div>
 <center><h3 >PHP training by LIFETIME technologies</h3></center>
-
+<script src="template/admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="template/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="template/admin/dist/js/adminlte.min.js"></script>
+<script src="template/admin/js/main.js"></script>
 </body>
 </html>

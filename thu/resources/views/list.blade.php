@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('contents')
+@section('contentss')
 <form action="" >
     <div class="form-group">
         <input  name="key" class="form-control" placeholder="tìm kiếm">

@@ -21,5 +21,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
          'name' => $faker->name,
         'address' => 'Hà Nội',
         'phone' => '0941507816',
+        'role'=>'2'
+        
     ];
 });
