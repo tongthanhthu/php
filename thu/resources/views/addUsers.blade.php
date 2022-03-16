@@ -42,8 +42,17 @@
                                           <label for="floatingInputInvalid">{{$message}}</label>
                                         @endforeach
                                          </div>
-                                                @endif 
+                                        @endif 
                                 </div>
+                                <div class="form-group">
+                                <label>lớp</label>
+                                <select class="form-control" name="classroom_id" id="classrooms">
+                                    @foreach($classrooms as $class)
+                                    <option value="{{$class->id}}">{{$class->name}}</option>
+                                   @endforeach
+                                </select>
+                                
+                            </div>
                                 <div class="form-group">
                                 <label>Quyền :</label>
                                 <label class="radio-inline">

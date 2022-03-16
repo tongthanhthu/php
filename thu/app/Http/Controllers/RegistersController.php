@@ -7,8 +7,10 @@ use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
 use App\Mail\WelcomeEmail;
 use App\Events\RegisteredEvent;
+use App\Events\CreatedUser;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendMailJod;
+use App\Mail\TestEmail;
 
 
 class RegistersController extends Controller
@@ -16,14 +18,15 @@ class RegistersController extends Controller
     protected $user;
     protected $jobs;
     
-    public function __construct(User $user,SendMailJod $jobs){
+    public function __construct(User $user,SendMailJod $jobs)
+    {
         $this->user = $user;
         $this->jobs = $jobs;
     }
 
-    function getregister(){
-
-     return view('Register',['title'=>'đăng ký']);
+    function getregister()
+    {
+       return view('Register',['title'=>'đăng ký']);
 
     }
 
@@ -31,15 +34,18 @@ class RegistersController extends Controller
     {
 
         $request['role'] = "2";
-        
-        $user = $this->user->checkregister($request);    
+        $request['classroom_id'] = "2";     
+        $user = $this->user->checkregister($request);
+        $email =  $request->mail_address;
+        $name = $request->name;
 
-       //new SendMailJod($request)
-       if($user== true){
-           $this->jobs->handle($request);
-           return redirect('login');
-         }
-      return redirect('/home');
+         event(new CreatedUser($email,$name));
+        
+        if($user == true)
+        {
+          event(new CreatedUser($email,$name));
+        }
+        return redirect('/home');
     }
 
 

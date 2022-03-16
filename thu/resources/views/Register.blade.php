@@ -17,7 +17,7 @@
   </div>
   <div class="card">
     <div class="card-body login-card-body">
-        @include('layouts.alert')
+       
 
                         <form action="" method="POST" enctype="multipart/form-data" class="form-floating">
                             <fieldset>

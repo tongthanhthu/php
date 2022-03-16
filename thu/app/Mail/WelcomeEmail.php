@@ -32,6 +32,7 @@ class WelcomeEmail extends Mailable
     public function build()
     {
         return $this
-        ->view('mail.test');
+        ->view('mail.test')
+        ->with($this->demo);
     }
 }

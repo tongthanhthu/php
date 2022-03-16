@@ -2,14 +2,14 @@
 
 namespace App\Listeners;
 
-use App\Events\RegisteredEvent;
+use App\Events\CreatedUser;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
 
-class RegisteredListener implements ShouldQueue
+class SendWelcomeEmailListener
 {
     /**
      * Create the event listener.
@@ -24,14 +24,13 @@ class RegisteredListener implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  RegisteredEvent  $event
+     * @param  CreatedUser  $event
      * @return void
      */
-    public function handle(RegisteredEvent $event)
+    public function handle(CreatedUser $event)
     {
-        Log::error($event);
-        return Mail::to('tongthanhthu27062k@gmail.com')->Queue(new TestEmail([
-            'email' => $event->email
+        return Mail::to($event->email)->send(new WelcomeEmail([
+            'name' => $event->name
         ]));
     }
 }

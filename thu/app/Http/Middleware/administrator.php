@@ -17,11 +17,12 @@ class administrator
     public function handle($request, Closure $next)
     {
         $role = Auth::User();
-        if($role->role ==1){
-        return $next($request);
-    }
-    else{
-        return redirect('list');
-    }
+        if($role->role == 1)
+        {
+          return $next($request);
+        }
+        else{
+          return redirect('list');
+        }
     }
 }

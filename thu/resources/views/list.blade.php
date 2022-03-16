@@ -6,6 +6,12 @@
         <button type="submit"  class="btn btn-primary"><i class="fas fa-search"></i></button>
     </div>
 </form>
+<form action="" >
+    <div class="form-group">
+        <input  name="keys" class="form-control" placeholder="tìm kiếm lớp">
+        <button type="submit"  class="btn btn-primary"><i class="fas fa-search"></i></button>
+    </div>
+</form>
 <hr>
 <form>
         <div id="page-wrapper">
@@ -26,17 +32,19 @@
                                 <th>email</th>
                                 <th>name</th>
                                 <th>địa chỉ</th>
-                                <th>phone</th>s
+                                <th>phone</th>
+                                <th>lớp</th>
                             </tr>
                         </thead>
                         <tbody>                                 
                                 @foreach($listall as $l)
                                 <tr >
-                                <td>{{$loop->iteration}}</td>
+                                <td>{{$l->id}}</td>
                                 <td>{{$l->mail_address}}</td>
                                 <td >{!! \App\Helpers\facade::toUpperCase($l->name)   !!}</td>
                                 <td >{{$l->address}}</td>
                                 <td>{{$l->phone}}</td>
+                                <td>{{$l->classrooms->name}}</td>
                           </tr>
                                 @endforeach                            
                         </tbody>

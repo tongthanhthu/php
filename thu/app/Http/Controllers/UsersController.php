@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\classrooms;
 use App\Http\Requests\CreateUserRequest;
 
 class UsersController extends Controller
@@ -15,7 +16,8 @@ class UsersController extends Controller
 
     function getaddUsers(){
 
-     return view('addUsers',['title'=>'thêm người dùng']);
+     $classrooms = classrooms::all();
+     return view('addUsers',['title'=>'thêm người dùng','classrooms'=>$classrooms]);
     }
 
     function postaddUsers(CreateUserRequest $request){        

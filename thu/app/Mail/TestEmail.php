@@ -33,7 +33,6 @@ class TestEmail extends Mailable implements ShouldQueue
         return $this
         ->subject('Test gửi mail xem thế lào')
         ->view('mail.test')
-        ->with($this->data)
         ;
     }
 }

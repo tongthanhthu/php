@@ -5,7 +5,7 @@
 	<title>Test Mail</title>
 </head>
 <body>
-“Xin chào {{$demo->name}}
+“Xin chào {{$demo['name']}}
 Chúc mừng bạn đã đăng ký tài khoản thành công.”
 
 </body>

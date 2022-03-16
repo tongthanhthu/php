@@ -21,7 +21,11 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\RegisteredEvent' => [
             'App\Listeners\RegisteredListener',
+        ],
+        'App\Events\CreatedUser' => [
+            'App\Listeners\SendWelcomeEmailListener',
         ]
+
     ];
 
     /**

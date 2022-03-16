@@ -16,14 +16,18 @@ class AdminLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
-            
-          
-        return $next($request);
-
-    }
-    else{
-        return redirect('login');
-    }
+        if(Auth::check())
+        {
+          $class = Auth::User();
+            if($class->classroom_id < 5 )
+            {
+                return $next($request);
+            }
+            return redirect('login');       
+        }
+        else
+        {
+          return redirect('login');
+        }
     }
 }
