@@ -42,7 +42,7 @@ class UglyBoss extends Supervisor implements Boss {
         $before = 'before';
         $after = 'after';
 
-       return strpos($this->slogan, $before) === false && strpos($this->slogan, $after) === false;
+       return strpos($this->slogan, $before) !== false && strpos($this->slogan, $after) !== false;
     }
     public function checkValidSlogan(){
         if($this->saySloganOutLoud() !== false){
