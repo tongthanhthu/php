@@ -8,7 +8,13 @@
 </form>
 <form action="" >
     <div class="form-group">
-        <input  name="keys" class="form-control" placeholder="tìm kiếm lớp">
+        
+        <select style="width:300px" id="states">
+             @foreach($listall as $l)
+         <option value="{{$l->classrooms->id}}">{{$l->classrooms->name}}</option>
+         @endforeach
+        </select>
+        
         <button type="submit"  class="btn btn-primary"><i class="fas fa-search"></i></button>
     </div>
 </form>

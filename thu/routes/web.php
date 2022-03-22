@@ -15,7 +15,7 @@ use App\Http\Controllers\RegistersController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+  route::get('/hello_world ',[HelloWorldController::class,'show']);
 //route::get('addUsers',[UsersController::class,'getaddUsers']);
  //route::post('addUsers',[UsersController::class,'postaddUsers']);
  //route::get('admin/list',[UsersController::class,'list']);

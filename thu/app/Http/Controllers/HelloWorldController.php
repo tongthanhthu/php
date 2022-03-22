@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class HelloWorldController extends Controller
 {
-    function index(){
-      dd(request->key);
+    function show(){
 
-     return view('Register');
+       return view('hello_world.show');
+
     }
 }

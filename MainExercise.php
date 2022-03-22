@@ -69,6 +69,8 @@ echo "<br>";
 
 var_dump($easyBoss->checkValidSlogan()); // true
 echo "<br>";
-var_dump($uglyBoss->checkValidSlogan()); // true
+var_dump($uglyBoss->checkValidSlogan()); 
+// true
+// true
 
 
