@@ -17,7 +17,12 @@
                              {{session('thongbao')}}
                          </div>
                          @endif
-                         <h4>STT {{ $listall->firstItem() }} - {{ $listall->lastItem() }}</h4>
+                    @if(Session::has('success'))
+                          <div class="alert alert-success">
+                        {{Session::get('success')}}
+                        </div>
+
+                    @endif
 
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
@@ -26,13 +31,17 @@
                                 <th>email</th>
                                 <th>name</th>
                                 <th>địa chỉ</th>
-                                <th>phone</th>s
+                                <th>phone</th>
                             </tr>
                         </thead>
                         <tbody>                                 
+                        <?php $i = 0; $skipped =  $listall->firstItem(); ?>
+
+                              
                                 @foreach($listall as $l)
                                 <tr >
-                                <td>{{$loop->iteration}}</td>
+                                <td> {{ $skipped + $i }}
+                                     <?php $i++; ?></td>
                                 <td>{{$l->mail_address}}</td>
                                 <td >{!! \App\Helpers\facade::toUpperCase($l->name)   !!}</td>
                                 <td >{{$l->address}}</td>

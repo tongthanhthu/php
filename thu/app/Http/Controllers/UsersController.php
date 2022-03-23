@@ -25,10 +25,16 @@ class UsersController extends Controller
      return view('Register',['title'=>'thêm người dùng']);
     }
 
-    function postregister(CreateUserRequest $request){
+    function postregister(CreateUserRequest $request)
+    {
          
-      $this->user->checkregister($request);
-      return redirect('list');
+      $user = $this->user->checkregister($request);
+
+      if($user)
+      {
+        Session::flash('success','tạo thành công tài khoản');
+        return redirect('list');
+      }
     }
     function list(){
 
