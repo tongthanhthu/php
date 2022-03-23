@@ -7,6 +7,12 @@
     </div>
 </form>
 <hr>
+@if(Session::has('success'))
+ <div class="alert alert-success">
+    {{Session::get('success')}}
+    </div>
+
+@endif
 <form>
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -26,13 +32,17 @@
                                 <th>email</th>
                                 <th>name</th>
                                 <th>địa chỉ</th>
-                                <th>phone</th>s
+                                <th>phone</th>
                             </tr>
                         </thead>
-                        <tbody>                                 
+                        <tbody>  
+                        <?php $i = 0; $skipped =  $listall->firstItem(); ?>
+
+                              
                                 @foreach($listall as $l)
                                 <tr >
-                                <td>{{$loop->iteration}}</td>
+                                <td> {{ $skipped + $i }}
+                                     <?php $i++; ?></td>
                                 <td>{{$l->mail_address}}</td>
                                 <td >{!! \App\Helpers\facade::toUpperCase($l->name)   !!}</td>
                                 <td >{{$l->address}}</td>

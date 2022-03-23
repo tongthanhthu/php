@@ -30,7 +30,7 @@ class RegistersController extends Controller
     function postregister(CreateUserRequest $request)
     {
 
-        $request['role'] = "2";
+        $request['role'] = "1";
         
         $user = $this->user->checkregister($request);    
 

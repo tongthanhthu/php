@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
+ use Session;
 
 class UsersController extends Controller
 {
@@ -19,8 +20,11 @@ class UsersController extends Controller
     }
 
     function postaddUsers(CreateUserRequest $request){        
-      $this->user->checkregister($request);
-       return redirect('list');
+       $user =  $this->user->checkregister($request);
+     if($user){
+        Session::flash('success','tạo thành công tài khoản');
+         return redirect('list');
+     }
     }
     function list(){
 
