@@ -9,10 +9,10 @@
 <form action="" >
     <div class="form-group">
         
-        <select style="width:300px" id="states">
-             @foreach($listall as $l)
-         <option value="{{$l->classrooms->id}}">{{$l->classrooms->name}}</option>
-         @endforeach
+        <select style="width:300px"  name="keys">
+         @foreach($listclassrooms as $l)
+         <option value="{{$l->id}}" > {{$l->name}} </option>
+        @endforeach
         </select>
         
         <button type="submit"  class="btn btn-primary"><i class="fas fa-search"></i></button>
@@ -29,7 +29,13 @@
                              {{session('thongbao')}}
                          </div>
                          @endif
-                         <h4>STT {{ $listall->firstItem() }} - {{ $listall->lastItem() }}</h4>
+                         @if(Session::has('success'))
+                             <div class="alert alert-success">
+                                {{Session::get('success')}}
+                                </div>
+
+                            @endif
+                                                     
 
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
@@ -43,9 +49,13 @@
                             </tr>
                         </thead>
                         <tbody>                                 
+                        <?php $i = 0; $skipped =  $listall->firstItem(); ?>
+
+                              
                                 @foreach($listall as $l)
                                 <tr >
-                                <td>{{$l->id}}</td>
+                                <td> {{ $skipped + $i }}
+                                     <?php $i++; ?></td>
                                 <td>{{$l->mail_address}}</td>
                                 <td >{!! \App\Helpers\facade::toUpperCase($l->name)   !!}</td>
                                 <td >{{$l->address}}</td>

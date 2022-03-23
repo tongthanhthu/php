@@ -50,7 +50,11 @@ class User extends Model
 
     public function listAll()
     {
-      return User::orderBy('id','asc')->Search()->paginate(20);
+      return User::orderBy('id','asc')->Search()->SearchClass()->paginate(20);
+    }
+    public function lisClassrooms()
+    {
+        return classrooms::all();
     }
 
     public function scopeSearch($query)
@@ -67,7 +71,7 @@ class User extends Model
 
        if( $keys = request()->keys)
        {
-          $query = classrooms::where('name','like','%'.$keys.'%')->get();
+          $query = $query->orwhere('classroom_id',$keys);
          //dd($query);die();
         }
 

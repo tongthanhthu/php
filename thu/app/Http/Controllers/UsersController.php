@@ -20,13 +20,21 @@ class UsersController extends Controller
      return view('addUsers',['title'=>'thêm người dùng','classrooms'=>$classrooms]);
     }
 
-    function postaddUsers(CreateUserRequest $request){        
-      $this->user->checkregister($request);
-       return redirect('list');
+    function postaddUsers(CreateUserRequest $request)
+    {        
+      $user = $this->user->checkregister($request);
+
+      if($user)
+      {
+        Session::flash('success','tạo thành công tài khoản');
+        return redirect('list');
+      }
     }
     function list(){
 
-        return view('list',['listall'=> $this->user->listAll(),'title'=>'danh sach']);
+        return view('list',['listall'=> $this->user->listAll(),
+            'listclassrooms'=> $this->user->lisClassrooms(),
+            'title'=>'danh sach']);
     }
 
 }
