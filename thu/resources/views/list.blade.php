@@ -1,4 +1,4 @@
-<?php $i=1;?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +19,12 @@
                             <small>danh sách</small>
                         </h1>
                     </div>
+                    @if(Session::has('success'))
+                          <div class="alert alert-success">
+                        {{Session::get('success')}}
+                        </div>
+
+                    @endif
                       @if(count($errors) > 0)
                          <div class="alert alert-danger">
                              @foreach($errors->all() as $err)
@@ -31,7 +37,7 @@
                              {{session('thongbao')}}
                          </div>
                          @endif
-                         <h4>STT {{ $listall->firstItem() }} - {{ $listall->lastItem() }}</h4>
+
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -48,9 +54,13 @@
 
                        
                                  
+                        <?php $i = 0; $skipped =  $listall->firstItem(); ?>
+
+                              
                                 @foreach($listall as $l)
-                                <tr class="odd gradeX" align="center">
-                                <td>{{$loop->iteration}}</td>
+                                <tr >
+                                <td> {{ $skipped + $i }}
+                                     <?php $i++; ?></td>
                                 <td>{{$l->mail_address}}</td>
                                 <td >{{$l->name}}</td>
                                 <td >{{$l->address}}</td>
