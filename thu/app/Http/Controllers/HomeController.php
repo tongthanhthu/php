@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('list',['listall'=> $this->user->listAll(),'title'=>'danh sach']);
+        return view('list',['listall'=> $this->user->listAll(),'listclassrooms'=> $this->user->lisClassrooms(),'title'=>'danh sach']);
     }
     public function logout(){
         Auth::logout();
