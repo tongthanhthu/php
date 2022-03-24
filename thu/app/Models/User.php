@@ -39,7 +39,7 @@ class User extends Model
      return true;
     }
     public function listAll(){
-      return User::orderBy('id','asc')->Search()->paginate(20);
+      return User::orderBy('mail_address','asc')->Search()->paginate(20);
     }
     public function scopeSearch($query){
        if( $key = request()->key){
