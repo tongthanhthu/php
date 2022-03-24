@@ -50,7 +50,7 @@ class User extends Model
 
     public function listAll()
     {
-      return User::orderBy('id','asc')->Search()->SearchClass()->paginate(20);
+      return User::orderBy('mail_address','asc')->Search()->SearchClass()->paginate(20);
     }
     public function lisClassrooms()
     {
