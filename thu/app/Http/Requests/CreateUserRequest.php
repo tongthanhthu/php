@@ -29,7 +29,7 @@ class CreateUserRequest extends FormRequest
             'passwordconfirm'=>'required|same:password',
             'name'=>'required|min:3|max:255',
             'address'=>'max:255',
-            'phone'=>'max:15|numeric'
+            'phone'=>'max:15|regex:/^([0-9\s\-\+\(\)]*)$/'
          ];
     }
 
