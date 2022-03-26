@@ -38,12 +38,10 @@ class RegistersController extends Controller
         $user = $this->user->checkregister($request);
         $email =  $request->mail_address;
         $name = $request->name;
-
-         event(new CreatedUser($email,$name));
         
         if($user == true)
         {
-          event(new CreatedUser($email,$name));
+          event(new CreatedUser($request));
         }
         return redirect('/home');
     }

@@ -29,8 +29,9 @@ class SendWelcomeEmailListener
      */
     public function handle(CreatedUser $event)
     {
-        return Mail::to($event->email)->send(new WelcomeEmail([
-            'name' => $event->name
+        //dd($event->email->mail_address);die();
+        return Mail::to($event->email->mail_address)->send(new WelcomeEmail([
+            'name' => $event->email->name
         ]));
     }
 }

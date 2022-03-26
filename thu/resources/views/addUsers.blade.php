@@ -57,7 +57,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" name="phone" class="form-control is-invalid" id="floatingInputInvalid" placeholder="nhập số điện thoại" >
+                                    <input type="text" name="phone" class="form-control is-invalid" id="floatingInputInvalid" placeholder="nhập số điện thoại" >
                                         @if ($errors->get('phone'))
                                          <div class="alert alert-danger">
                                         @foreach ($errors->get('phone') as $message)

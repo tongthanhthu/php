@@ -22,10 +22,9 @@ class CreatedUser
      *
      * @return void
      */
-    public function __construct($email,$name)
+    public function __construct($email)
     {
         $this->email = $email;
-        $this->name = $name;
     }
 
 }
