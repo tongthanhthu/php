@@ -36,8 +36,8 @@ class RegistersController extends Controller
         $request['role'] = "2";
         $request['classroom_id'] = "2";     
         $user = $this->user->checkregister($request);
-        $email =  $request->mail_address;
-        $name = $request->name;
+        //$email =  $request->mail_address;
+        //$name = $request->name;
         
         if($user == true)
         {
