@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\classrooms;
 use App\Http\Requests\CreateUserRequest;
+use Session;
 
 class UsersController extends Controller
 {
