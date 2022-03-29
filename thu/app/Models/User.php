@@ -57,7 +57,7 @@ class User extends Model
     {
       if($key = request()->key)
         {
-         $query = $query->where('name','like','%'.$key.'%')->orwhere('mail_address','like','%'.$key.'%')->orwhere('phone',$key);
+         $query = $query->where('name','like','%'.$key.'%')->orwhere('mail_address','like','%'.$key.'%')->orwhere('address','like','%'.$key.'%')->orwhere('phone',$key);
         }
         return $query;
      }
